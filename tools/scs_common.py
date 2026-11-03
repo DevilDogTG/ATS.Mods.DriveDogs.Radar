@@ -128,6 +128,25 @@ class Pmg:
         if problems:
             raise ValueError("unexpected PMG layout: " + ", ".join(problems))
 
+    def with_hookup_renamed(self, old, new):
+        """Return new PMG bytes with the hookup string `old` replaced by `new` in the string pool.
+
+        Only same-length names: the bytes are swapped in place, so no offset moves. `old` must be the hookup
+        of at least one locator and occur exactly once in the pool.
+        """
+        if len(old) != len(new):
+            raise ValueError(f"hookup rename needs equal lengths: {old!r} -> {new!r}")
+        if old not in [l[4] for l in self.locators()]:
+            raise ValueError(f"no locator uses hookup {old!r}")
+        pool, start = self.strings(), self.offsets["strings"]
+        key = b"\0" + old.encode() + b"\0"
+        at = (b"\0" + pool).find(key)
+        if at < 0 or (b"\0" + pool).find(key, at + 1) >= 0:
+            raise ValueError(f"hookup {old!r} not exactly once in the string pool")
+        data = bytearray(self.data)
+        data[start + at:start + at + len(old)] = new.encode()
+        return bytes(data)
+
     def with_locators(self, locators):
         """Return new PMG bytes with extra locators [(name, pos, quat, hookup)].
 

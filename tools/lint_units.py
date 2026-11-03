@@ -24,7 +24,10 @@ SCAN_DIRS = ("unit", "def/vehicle")
 
 # attributes not used by base data on that class but confirmed to load in game
 PROVEN = {
-    "flare_blink": {"fade_distance", "fade_span"},          # ddradar.blink, rounds 2-4
+    "flare_blink": {"fade_distance", "fade_span",           # ddradar.blink, ETS2 rounds 2-4
+                    # ETS2 base uses these on flare_blink, ATS 1.61.3.1 base does not; the ATS exe registers them
+                    # on flare_blink's parents (light_source: type, forward_distance; flare: state_change_duration)
+                    "type", "forward_distance", "state_change_duration"},
 }
 
 
