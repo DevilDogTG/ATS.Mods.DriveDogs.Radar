@@ -1,0 +1,7 @@
+[orange]DriveDogs: Radar[normal] - speed camera strobes
+
+Every fining speed camera of the base game and all SCS map DLCs blinks a red police-style strobe,
+so you see it before it sees you. No sounds, no truck parts.
+
+Want an "camera ahead" warning on a screen or LEDs? The DevDogs TruckSimulator SimHub plugin detects
+speed cameras from the same camera database (separate download).
