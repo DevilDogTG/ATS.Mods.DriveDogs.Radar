@@ -221,7 +221,7 @@ def add_text(img):
     x_start = w * 0.40
     max_width = w * 0.97 - x_start
     title_lines = ["DriveDogs:", "Radar"]
-    subtitle = "Speed Camera Detector"
+    subtitle = "Speed Cameras & Traps"
 
     title_size = int(h * 0.135)
     for line in title_lines:
