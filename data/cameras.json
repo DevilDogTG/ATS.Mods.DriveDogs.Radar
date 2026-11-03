@@ -1,0 +1,156 @@
+{
+ "base": "1.61.3.1",
+ "cameras": [
+  {
+   "model": "model/sign/speedcamera/pole_sc",
+   "kind": "camera",
+   "hookups": [
+    {
+     "name": "ml1",
+     "hookup": "speedcam.11",
+     "pos": [
+      0.0,
+      2.0,
+      0.0
+     ],
+     "quat": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+     ]
+    }
+   ],
+   "bbox_min": [
+    -0.437,
+    -0.083,
+    -0.291
+   ],
+   "bbox_max": [
+    0.442,
+    2.186,
+    0.188
+   ],
+   "units": [
+    "model.226"
+   ]
+  },
+  {
+   "model": "model/sign/speedcamera/police_sc",
+   "kind": "trap",
+   "hookups": [
+    {
+     "name": "ml1",
+     "hookup": "police.always.parked.physics.driver",
+     "pos": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "quat": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    {
+     "name": "ml2",
+     "hookup": "police_car.basic",
+     "pos": [
+      0.0,
+      2.545,
+      0.0
+     ],
+     "quat": [
+      0.7071,
+      0.0,
+      0.7071,
+      0.0
+     ]
+    }
+   ],
+   "bbox_min": [
+    -12.528,
+    0.145,
+    -14.021
+   ],
+   "bbox_max": [
+    11.917,
+    0.145,
+    14.766
+   ],
+   "units": [
+    "model.225"
+   ]
+  },
+  {
+   "model": "model/sign/speedcamera/speedcamera_pole",
+   "kind": "camera",
+   "hookups": [
+    {
+     "name": "ml1",
+     "hookup": "speedcam.11",
+     "pos": [
+      0.0,
+      3.339,
+      -0.516
+     ],
+     "quat": [
+      0.9983,
+      -0.059,
+      0.0,
+      0.0
+     ]
+    }
+   ],
+   "bbox_min": [
+    -0.562,
+    2.207,
+    -0.851
+   ],
+   "bbox_max": [
+    0.654,
+    4.032,
+    0.524
+   ],
+   "units": [
+    "model.nm_474"
+   ]
+  },
+  {
+   "model": "model/sign/speedcamera/speedcamera_stand",
+   "kind": "camera",
+   "hookups": [
+    {
+     "name": "ml1",
+     "hookup": "speedcam.11",
+     "pos": [
+      0.0,
+      2.27,
+      0.0
+     ],
+     "quat": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+     ]
+    }
+   ],
+   "bbox_min": [
+    -0.197,
+    -0.3,
+    -0.326
+   ],
+   "bbox_max": [
+    0.391,
+    2.395,
+    0.219
+   ],
+   "units": [
+    "model.nm_473"
+   ]
+  }
+ ]
+}
