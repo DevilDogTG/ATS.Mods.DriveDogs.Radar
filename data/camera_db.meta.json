@@ -1,0 +1,22 @@
+{
+ "game": "ats",
+ "game_version": "1.61.3.1",
+ "cameras": 5,
+ "traps": 16,
+ "source": "DriveDogs Radar (ATS) tools/extract_camera_db.py",
+ "columns": [
+  "uid",
+  "x",
+  "y",
+  "z",
+  "kind",
+  "unit",
+  "model",
+  "sector"
+ ],
+ "kinds": {
+  "camera": "fixed speed camera (fines on its own)",
+  "trap": "parked police car with a speed check (police_car hookup)"
+ },
+ "coordinates": "world space, metres - same as SCS telemetry truck.world.placement"
+}
