@@ -6,7 +6,7 @@ them before they see you. No sounds, no truck parts, tiny package.
 
 The ATS twin of the ETS2 DriveDogs Radar mod, with the same strobe. ATS has far fewer of them than ETS2:
 
-| | Models | Placed on the map (ATS 1.61.3.1) |
+| | Models | Placed on the map (ATS 1.62.1.1) |
 |---|---|---|
 | Speed cameras (`speedcam.11` hookup) | `pole_sc`, `speedcamera_pole`, `speedcamera_stand` | 5, all `speedcamera_pole` |
 | Police speed traps (`police_sc`) | `police_sc` | 16 |
@@ -27,7 +27,7 @@ Manager. Optional for multiplayer (`mp_mod_optional`).
 
 ## Build (after a game update)
 Requires Python 3 + Pillow, `scs_packer` on `PATH`, and the extracted ATS game reference
-(`<reference root>/base/<version>`, resolved through the `scs-mod-developer` profile helpers;
+(`<reference root>/base/<X.Y>`, resolved through the `scs-mod-developer` profile helpers;
 `GAME_VERSION` in `tools/scs_common.py`). The tools refuse to run unless `pack.config.json` says `"game": "ats"`.
 
 ```bash

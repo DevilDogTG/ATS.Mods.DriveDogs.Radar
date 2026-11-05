@@ -17,7 +17,7 @@ Strobe only (ADR-0001): speed-camera detection for the driver lives in the DevDo
 plugin, which reads data/camera_db.csv. The in-cab experiments (windshield unit, sun visor, LED board,
 roof-grill aux part, SDK plugin) are documented in docs/POC-PLAN.md and removed after 12a5936.
 
-usage: python tools/build_mod.py [--base <reference root>/base/<version>] [--version 0.2.0-dev.1]
+usage: python tools/build_mod.py [--base <reference root>/base/<X.Y>] [--version 0.2.0-dev.1]
 """
 import argparse
 import json
@@ -74,7 +74,7 @@ def camera_locators(cam, overrides):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--base", default=None, help="default: <host reference root>/base/<GAME_VERSION>")
+    ap.add_argument("--base", default=None, help="default: <host reference root>/base/<X.Y of GAME_VERSION>")
     ap.add_argument("--version", default="0.2.0-dev.1")
     ap.add_argument("--packer", default="scs_packer")
     args = ap.parse_args()

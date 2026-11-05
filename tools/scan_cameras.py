@@ -14,7 +14,7 @@ refers to either by that unit's token (see extract_camera_db.py). A full scan of
 models and 1,783 prefab models in 1.61.3.1 found no other carrier, so the model_defs are cut to the paths
 that could hold one.
 
-usage: python tools/scan_cameras.py [--base <reference root>/base/<version>]
+usage: python tools/scan_cameras.py [--base <reference root>/base/<X.Y>]
 """
 import argparse
 import json
@@ -24,7 +24,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, os.path.dirname(__file__))
-from scs_common import Pmg, default_base, megapack  # noqa: E402
+from scs_common import Pmg, base_version, default_base, megapack  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 UNIT = re.compile(r"^\s*(sign_model|model_def)\s*:\s*([\w.]+)\s*\{(.*?)^\s*\}", re.M | re.S)
@@ -87,7 +87,7 @@ def find_camera_models(base, by_model):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--base", default=None, help="default: <host reference root>/base/<GAME_VERSION>")
+    ap.add_argument("--base", default=None, help="default: <host reference root>/base/<X.Y of GAME_VERSION>")
     ap.add_argument("--out", default=os.path.join(ROOT, "data", "cameras.json"))
     args = ap.parse_args()
     base = args.base or default_base()
@@ -96,7 +96,7 @@ def main():
     cameras = find_camera_models(base, by_model)
     os.makedirs(os.path.dirname(args.out), exist_ok=True)
     with open(args.out, "w", newline="\n") as fh:
-        json.dump({"base": os.path.basename(base.rstrip("/\\")),
+        json.dump({"base": base_version(base),
                    "cameras": [cameras[k] for k in sorted(cameras)]}, fh, indent=1)
     kinds = [c["kind"] for c in cameras.values()]
     print(f"{kinds.count('camera')} camera + {kinds.count('trap')} trap models "
