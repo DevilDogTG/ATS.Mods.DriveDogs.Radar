@@ -4,7 +4,7 @@ Every fining speed camera of the base game and all SCS map DLCs blinks a red pol
 police speed trap's parked patrol car flashes its lightbar, so you see them before they see you.
 No sounds, no truck parts.
 
-ATS has few of them: 5 speed cameras and 16 police speed traps on the whole map (ATS 1.61).
+ATS has few of them: 5 speed cameras and 16 police speed traps on the whole map (ATS 1.62).
 
 Want a "camera ahead" warning on a screen or LEDs? The DevDogs TruckSimulator SimHub plugin detects
 speed cameras from the same camera database (separate download).

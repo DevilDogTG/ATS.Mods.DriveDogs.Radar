@@ -15,7 +15,7 @@ import sys
 from pathlib import Path
 
 GAME = "ats"                # this repo's game: the tools were ported from ETS2 Radar and refuse any other
-GAME_VERSION = "1.61.3.1"   # extracted reference used by the tools (override with --base)
+GAME_VERSION = "1.62.1.1"   # installed game the tools read; its reference is base/<X.Y> (override with --base)
 _MEGAPACK = Path.home() / ".agent-brains/profiles/scs-mod-developer/skills/megapack/scripts"
 _REPO = Path(__file__).resolve().parent.parent
 
@@ -36,12 +36,21 @@ def megapack():
 
 
 def default_base():
-    """<this host's extracted reference root for the repo's game>/base/<GAME_VERSION> (from the host config)."""
+    """<this host's extracted reference root for the repo's game>/base/<X.Y of GAME_VERSION> (from the host config)."""
     mp = megapack()
     game = mp.repo_game(_REPO)
     if game != GAME:
         raise SystemExit(f"pack.config.json game {game!r}: these tools are the {GAME} port of Radar")
-    return str(mp.reference_root(game) / "base" / GAME_VERSION)
+    return str(mp.base_dir(mp.reference_root(game), GAME_VERSION))
+
+
+def base_version(base):
+    """Full game version an extracted reference was taken from (its _extract-meta.md `game_version`).
+
+    The reference folder is named by minor version only (base/1.62), so the folder name is not enough to
+    tell which patch the data came from; it is the fallback for a reference without the meta file.
+    """
+    return megapack().workshop.read_meta(Path(base)).get("game_version") or Path(base.rstrip("/\\")).name
 
 ALPHABET = "\0" + "0123456789abcdefghijklmnopqrstuvwxyz_"
 

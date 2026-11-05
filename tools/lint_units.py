@@ -49,7 +49,7 @@ def base_attributes(base):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--base", default=None, help="default: <host reference root>/base/<GAME_VERSION>")
+    ap.add_argument("--base", default=None, help="default: <host reference root>/base/<X.Y of GAME_VERSION>")
     ap.add_argument("files", nargs="*", help="defaults to every .sii under src/ and build/stage/def")
     args = ap.parse_args()
     args.base = args.base or default_base()

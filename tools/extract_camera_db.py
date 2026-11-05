@@ -21,7 +21,7 @@ import struct
 import sys
 
 sys.path.insert(0, os.path.dirname(__file__))
-from scs_common import GAME, default_base, token  # noqa: E402
+from scs_common import GAME, base_version, default_base, token  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ITEM_TYPES = {"sign": 36, "model": 5}   # unit prefix -> map item type
@@ -33,7 +33,7 @@ TYPE_AT, UID_AT, KDOP_AT = -57, -53, -45
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--base", default=None, help="default: <host reference root>/base/<GAME_VERSION>")
+    ap.add_argument("--base", default=None, help="default: <host reference root>/base/<X.Y of GAME_VERSION>")
     ap.add_argument("--cameras", default=os.path.join(ROOT, "data", "cameras.json"))
     ap.add_argument("--out", default=os.path.join(ROOT, "data", "camera_db.csv"))
     args = ap.parse_args()
@@ -80,7 +80,7 @@ def main():
     # The DB is copied into other repos (DevDogs.TruckSimulator SimHub plugin) - always state which
     # game and game version it was extracted from, so a copy can be matched to the game it serves.
     kinds = [r[4] for r in rows]
-    meta = {"game": GAME, "game_version": os.path.basename(args.base.rstrip("/\\")),
+    meta = {"game": GAME, "game_version": base_version(args.base),
             "cameras": kinds.count("camera"), "traps": kinds.count("trap"),
             "source": "DriveDogs Radar (ATS) tools/extract_camera_db.py",
             "columns": COLUMNS,
