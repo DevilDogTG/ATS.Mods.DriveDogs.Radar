@@ -43,3 +43,7 @@ is copied into the SimHub plugin repo only for the **same game version** (`data/
 ## History
 Ported from the ETS2 DriveDogs Radar 1.0.0 tools; the ETS2 repo's `docs/POC-PLAN.md` records the proof of
 concept, including why an in-cab indicator was not possible as a mod.
+
+1.0.0 was released before an in-game check on ATS: the strobe unit is the one playtested in ETS2, and the
+package was verified offline (lint against the base data, archive compared with the build). Reports of a
+camera without a strobe or a trap car that does not flash are welcome; fixes ship as 1.0.x.
